@@ -1,0 +1,96 @@
+/**
+ * Base configurations 
+ */
+figure {
+	margin: 0;
+}
+.row {
+	width: rem-calc(1000) !important;
+	background: #c00;
+	height: 100%;
+}
+
+/**
+ * Positions
+ */
+%abs {
+	position: absolute;
+}
+.abs {
+	@extend %abs;
+}
+
+%rel {
+	position: relative;
+}
+.rel {
+	@extend %rel;
+}
+
+.centered {
+	margin: 0 auto;
+}
+
+/**
+ * Displays
+ */
+.display-block {
+	display: block;
+}
+
+/**
+ * Fonts
+ */
+%apex-medium {
+	font-family: 'ApexNew-Medium' !important;
+}
+.apex-medium {
+	@extend %apex-medium;
+}
+
+%apex-medium-italic {
+	font-family: 'ApexNew-MediumItalic';
+}
+.apex-medium-italic {
+	@extend %apex-medium-italic;
+}
+
+%apex-bold {
+	font-family: 'ApexNew-BoldItalic';
+}
+.apex-bold {
+	@extend %apex-bold;
+}
+
+%apex-book {
+	font-family: 'ApexNew-Book';
+}
+.apex-book {
+	@extend %apex-book;
+}
+
+%century-gothic {
+	font-family: 'CenturyGothic';
+}
+.century-gothic {
+	@extend %century-gothic;
+}
+
+%century-gothic-bold {
+	font-family: 'CenturyGothic-Bold';
+}
+.century-gothic-bold {
+	@extend %century-gothic-bold;
+}
+
+/**
+ * Transitions
+ */
+%transition {
+	@include single-transition;
+}
+
+/**
+ * Variables
+ */
+$green : #45c08d;

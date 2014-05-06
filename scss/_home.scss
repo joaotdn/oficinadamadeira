@@ -1,0 +1,72 @@
+/**
+ * Main menu
+ */
+%circle {
+	@include border-radius(50%);
+}
+
+.logo-container {
+	@extend %transition;
+	top: rem-calc(40);
+	left: rem-calc(200);
+	z-index: 99;
+
+	h4 {
+		line-height: 1.2;
+		margin: rem-calc(47) 0 0 rem-calc(35);
+		font-size: rem-calc(20);
+		width: rem-calc(198);
+	}
+
+	span {
+		color: $green;
+		@extend %apex-medium-italic;
+	}
+
+	&.r {
+		left: rem-calc(630);
+	}
+
+	&:hover {
+		@include translateY(10px);
+	}
+}
+
+.logo {
+	height: rem-calc(250);
+	background: white;
+	@extend %circle;
+
+	.logo-img {
+		top:  rem-calc(50);
+	}
+}
+
+.go-about {
+	@extend %transition;
+	top: rem-calc(200);
+	z-index: 10;
+
+	a {
+		@extend %circle;
+		height: rem-calc(333);
+		background: url(images/bg-menu-about.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	&:hover {
+		@include translateY(10px);
+	}
+}
+
+//Main slide
+.main-slide {
+	height: rem-calc(500);
+	background: #ccc;
+	border-radius: 50%;
+	top: rem-calc(170);
+	left: rem-calc(310);
+	z-index: 20;
+}
