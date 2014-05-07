@@ -10,23 +10,14 @@
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/jpreloader.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('body').jpreLoader({
-          showPercentage: false,
-          loaderVPos: '400px',
-          //autoClose: false,
-          splashVPos: '202px',
-          closeBtnText: ''
-        });
-      });
-    </script>
     
   </head>
   <body>
     <div class="row rel">
 
-      <div class="small-3 abs logo-container">
+      <div class="circle-red small-12 abs wow fadeIn" data-wow-duration="2s" data-wow-delay="1s"></div>
+
+      <div class="small-3 abs logo-container wow bounceInDown menu-circle" data-wow-duration="2s" data-wow-delay="0.5s">
         <figure class="logo small-12 text-center">
           <a href="#" class="logo-img display-block centered rel">
             <div class="icon-logo centered"></div>
@@ -34,7 +25,7 @@
         </figure>
       </div>
 
-      <div class="small-4 abs go-about">
+      <div class="small-4 abs go-about wow bounceInDown menu-circle" data-wow-duration="2s" data-wow-delay="1s">
         <a href="#" class="display-block small-12 left">
           
         </a>
@@ -44,14 +35,22 @@
         
       </div>
 
-      <div class="small-3 abs r logo-container">
+      <div class="small-3 abs r logo-container wow bounceInDown menu-circle" data-wow-duration="2s" data-wow-delay="1.5s">
         <figure class="logo small-12">
-          <a href="#" class="display-block centered rel">
+          <a href="#" class="display-block centered rel" title="Informações Técnicas">
             <h4 class="centered apex-medium-italic left">
               Clique aqui para informações técnicas sobre a nossa <span>madeira, armazenamento</span> e nossos <span>produtos</span>
             </h4>
+            <p class="apex-book text-upp left">Informações Técnicas</p>
           </a>
         </figure>
+      </div>
+
+
+      <div class="small-4 abs go-about by-clients wow bounceInDown menu-circle" data-wow-duration="2s" data-wow-delay="1.8s">
+        <a href="#" class="display-block small-12 left">
+          
+        </a>
       </div>
 
     </div>

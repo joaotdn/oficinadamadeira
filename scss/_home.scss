@@ -6,7 +6,6 @@
 }
 
 .logo-container {
-	@extend %transition;
 	top: rem-calc(40);
 	left: rem-calc(200);
 	z-index: 99;
@@ -27,8 +26,11 @@
 		left: rem-calc(630);
 	}
 
-	&:hover {
-		@include translateY(10px);
+	p {
+		width: rem-calc(198);
+		margin-left: rem-calc(33);
+		margin-top: rem-calc(10);
+		font-size: rem-calc(14);
 	}
 }
 
@@ -36,14 +38,17 @@
 	height: rem-calc(250);
 	background: white;
 	@extend %circle;
-
+	
+	.r & {
+		background-image: url(images/bg-circle.jpg);
+	}
+	
 	.logo-img {
 		top:  rem-calc(50);
 	}
 }
 
 .go-about {
-	@extend %transition;
 	top: rem-calc(200);
 	z-index: 10;
 
@@ -56,9 +61,32 @@
 		background-position: center center;
 	}
 
-	&:hover {
-		@include translateY(10px);
+	&.by-clients {
+		left: rem-calc(667);
+		top: rem-calc(380);
+
+		a {
+			background-image: url(images/bg-menu-services.jpg);
+		}
 	}
+}
+
+.menu-circle {
+	a {
+		@extend %transition;
+		&:hover {
+			@include opacity(.8);
+			text-decoration: underline;
+		}
+	}
+}
+
+.circle-red {
+	height: rem-calc(1000);
+	border: 1px solid #f2763b;
+	border-radius: 50%;
+	left: -30%;
+	top: rem-calc(-440);
 }
 
 //Main slide
