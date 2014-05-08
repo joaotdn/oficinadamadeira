@@ -1,0 +1,17 @@
+.about-video {
+	height: rem-calc(520);
+	background: $green;
+	border: 20px solid #fff;
+}
+
+.play-video {
+	width: rem-calc(100);
+	height: rem-calc(100);
+	background: shade($green,35%);
+	margin: rem-calc(210) 0 0 rem-calc(450);
+	@extend %circle;
+
+	span {
+		margin: rem-calc(26.5) 0 0 rem-calc(29.5);
+	}
+}

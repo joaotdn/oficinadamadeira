@@ -1,6 +1,15 @@
 /**
+ * Variables
+ */
+$green : #45c08d;
+$gray  : #a3a3a3;
+
+/**
  * Base configurations 
  */
+body {
+	position: relative;
+}
 figure {
 	margin: 0;
 }
@@ -8,6 +17,17 @@ figure {
 	width: rem-calc(1000) !important;
 	//background: #c00;
 	//height: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1;
+	@extend %transition-color;
+}
+
+#wrapper {
+	min-height: rem-calc(750);
+	position: relative;
+	z-index: 9999;
+	margin-bottom: rem-calc(40);
 }
 
 /**
@@ -36,6 +56,10 @@ figure {
  */
 .display-block {
 	display: block;
+}
+
+%ov-hidden {
+	overflow: hidden;
 }
 
 /**
@@ -93,14 +117,73 @@ figure {
 	@extend %text-upp;
 }
 
+.full-height {
+	height: 100%;
+}
+
+//colors
+.white {
+	color: white;
+}
+
 /**
  * Transitions
  */
 %transition {
 	@include single-transition;
 }
+%transition-opacity {
+	@include single-transition(opacity, .3s, ease-out);
+}
+%transition-color {
+	@include single-transition(color, .3s, ease-out);
+}
 
 /**
- * Variables
+ * Animations
  */
-$green : #45c08d;
+@keyframes rotate {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotate {
+	from {
+		-webkit-transform: rotate(0);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes rotate {
+	from {
+		-moz-transform: rotate(0);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes rotate {
+	from {
+		-ms-transform: rotate(0);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes rotate {
+	from {
+		-o-transform: rotate(0);
+	}
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+

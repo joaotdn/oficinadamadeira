@@ -1,0 +1,49 @@
+.inset-header {
+	z-index: 999;
+	padding-top: rem-calc(30);
+	padding-bottom: rem-calc(30);
+
+	h1 {
+		font-size: rem-calc(100);
+		margin-top: rem-calc(30);
+		letter-spacing: rem-calc(-4);
+	}
+}
+
+.inset-logo {
+	height: rem-calc(250);
+	background: white;
+	border-radius: 50%;
+
+	div {
+		margin-top:  rem-calc(50);
+	}
+}
+
+.circle-photo {
+	height: rem-calc(750);
+	top: rem-calc(-370);
+	left: rem-calc(210);
+	@extend %circle;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.inset-menu {
+	ul {
+		margin-top: rem-calc(5);
+		margin-left: 0;
+	}
+	li {
+		position: relative;
+		z-index: 999;
+		font-size: rem-calc(14);
+	}
+	a {
+		@extend %transition-color;
+		&:hover {
+			color: $green;
+		}
+	}
+}

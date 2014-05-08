@@ -1,0 +1,52 @@
+#footer {
+	border-top: 1px solid $gray;
+	padding-top: rem-calc(40);
+	padding-bottom: rem-calc(40);
+}
+
+.address {
+	p {
+		color: $gray;
+		font-size: rem-calc(12);
+		line-height: 1;
+		margin-bottom: rem-calc(5);
+		@extend %century-gothic;
+
+		&.email {
+			margin-top: rem-calc(20);
+			margin-bottom: rem-calc(20);
+		}
+
+		&.tel {
+			font-size: rem-calc(16);
+		}
+	}
+}
+
+.icon-logofooter {
+	margin-bottom: rem-calc(20);
+}
+
+.menu-footer {
+	li {
+		margin-left: rem-calc(20);
+		width: rem-calc(125.4);
+		@extend %apex-book;
+	}
+	a {
+		@extend %transition-color;
+		color: $gray;
+
+		&:hover {
+			color: $green;
+		}
+	}
+
+	.sub-menu {
+		margin-top: rem-calc(10);
+
+		li {
+			font-size: rem-calc(12);
+		}
+	}
+}

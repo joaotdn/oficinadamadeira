@@ -1,12 +1,48 @@
-.icon-loading {
+.icon-aleft {
+  background-image: url(images/spritesheet.png);
+  background-position: -913px -219px;
+  width: 14px;
+  height: 24px;
+}
+.icon-aright {
+  background-image: url(images/spritesheet.png);
+  background-position: -892px -219px;
+  width: 21px;
+  height: 34px;
+}
+.icon-bgbody {
   background-image: url(images/spritesheet.png);
   background-position: 0px 0px;
+  width: 682px;
+  height: 508px;
+}
+.icon-bgmenu {
+  background-image: url(images/spritesheet.png);
+  background-position: 0px -508px;
+  width: 596px;
+  height: 28px;
+}
+.icon-loading {
+  background-image: url(images/spritesheet.png);
+  background-position: -682px 0px;
   width: 301px;
   height: 219px;
 }
 .icon-logo {
   background-image: url(images/spritesheet.png);
-  background-position: -301px 0px;
+  background-position: -682px -219px;
   width: 169px;
   height: 123px;
+}
+.icon-logofooter {
+  background-image: url(images/spritesheet.png);
+  background-position: -682px -342px;
+  width: 133px;
+  height: 96px;
+}
+.icon-play {
+  background-image: url(images/spritesheet.png);
+  background-position: -851px -219px;
+  width: 41px;
+  height: 47px;
 }

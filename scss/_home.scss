@@ -1,8 +1,19 @@
+.icon-bgbody {
+	top: 0;
+	right: 0;
+}
 /**
  * Main menu
  */
+.menu-container {
+	min-height: rem-calc(750);
+}
+
 %circle {
 	@include border-radius(50%);
+}
+%lh-1 {
+	line-height: 1;
 }
 
 .logo-container {
@@ -61,6 +72,21 @@
 		background-position: center center;
 	}
 
+	p {
+		@extend %lh-1;
+		font-size: rem-calc(12);
+		margin-bottom: 0;
+	}
+
+	h3 {
+		@extend %lh-1;
+	}
+
+	h4 {
+		margin: rem-calc(195) 0 0 rem-calc(90);
+		@extend %lh-1;
+	}
+
 	&.by-clients {
 		left: rem-calc(667);
 		top: rem-calc(380);
@@ -69,32 +95,130 @@
 			background-image: url(images/bg-menu-services.jpg);
 		}
 	}
-}
 
-.menu-circle {
-	a {
-		@extend %transition;
-		&:hover {
-			@include opacity(.8);
+	&:hover {
+		z-index: 9999;
+		p,h3,h4 {
+			color: white;
 			text-decoration: underline;
 		}
 	}
 }
 
+.about-header {
+	margin-top: rem-calc(100);
+}
+
 .circle-red {
 	height: rem-calc(1000);
 	border: 1px solid #f2763b;
-	border-radius: 50%;
+	@extend %circle;
 	left: -30%;
 	top: rem-calc(-440);
+	z-index: 1;
+}
+
+.circle-dashed {
+	height: rem-calc(333);
+	border: 1px dashed $green;
+	@extend %circle;
+	right: rem-calc(-45);
+	top: rem-calc(200);
+	z-index: 12;
+	-webkit-animation: fadeIn 1s linear 1,rotate 1s linear infinite;
+	-o-animation: fadeIn 1s linear 1,rotate 1s linear infinite;
+	animation: fadeIn 1s linear 1,rotate 1s linear infinite;
+}
+
+.wood-bg {
+	height: rem-calc(250);
+	background-image: url(images/bg-wood.jpg);
+	background-position: center center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	top: rem-calc(390);
+	left: rem-calc(120);
+	z-index: 0;
 }
 
 //Main slide
 .main-slide {
 	height: rem-calc(500);
-	background: #ccc;
-	border-radius: 50%;
 	top: rem-calc(170);
 	left: rem-calc(310);
 	z-index: 20;
+
+	header {
+		left: rem-calc(123);
+		top: rem-calc(65);
+		z-index: 999;
+	}
+
+	figcaption {
+		background: #fff;
+		padding: rem-calc(10);
+		margin: rem-calc(260) 0 0 rem-calc(126);
+	}
+
+	p {
+		margin-bottom: 0;
+		font-size: rem-calc(12);
+	}
+
+	&:hover {
+		h5 {
+			color: $green;
+		}
+	}
+}
+
+.list-slides {
+	height: 100%;
+
+	ul {
+		border-radius: 50%;
+		@extend %ov-hidden;
+	}
+
+	ul,li,figure {
+		height: 100%;
+	}
+}
+
+.arrow-right {
+	@extend %transition;
+	background: white;
+	right: rem-calc(-40);
+	top: rem-calc(150);
+	width: rem-calc(85);
+	height: rem-calc(85);
+	@extend %circle;
+	z-index: 999;
+
+	div {
+		margin-top: rem-calc(25.5);
+	}
+	&:hover {
+		@include scale(1.1);
+	}
+}
+
+.arrow-left {
+	@extend %transition;
+	right: rem-calc(-15);
+	top: rem-calc(250);
+	background: $green;
+	width: rem-calc(60);
+	height: rem-calc(60);
+	@extend %circle;
+	z-index: 999;
+
+	div {
+		margin-top: rem-calc(18);
+	}
+	&:hover {
+		@include scale(1.1);
+	}
 }
