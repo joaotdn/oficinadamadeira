@@ -2,6 +2,7 @@
 	height: rem-calc(520);
 	background: $green;
 	border: 20px solid #fff;
+	margin-bottom: rem-calc(30);
 }
 
 .play-video {
@@ -12,6 +13,50 @@
 	@extend %circle;
 
 	span {
-		margin: rem-calc(26.5) 0 0 rem-calc(29.5);
+		margin: rem-calc(26.5) 0 0 rem-calc(30);
+	}
+}
+
+.page-header {
+	padding: rem-calc(20);
+	background: white;
+	margin-bottom: rem-calc(30);
+
+	h1 {
+		font-size: rem-calc(72);
+	}	
+}
+
+.about-text {
+	@include columns(2);
+}
+
+.header-sidebar {
+	background: $green;
+	padding: rem-calc(20);
+	margin-bottom: rem-calc(30);
+	margin-top: rem-calc(124);
+}
+
+.team-thumb {
+	width: rem-calc(120);
+	height: rem-calc(120);
+	@extend %circle;
+	@extend %bg-cover;
+}
+
+.team-member {
+	margin-top: rem-calc(30);
+	h5 {
+		margin-bottom: 0;
+	}
+	p {
+		font-size: rem-calc(12);
+	}
+}
+
+.om-team {
+	figure {
+		margin-bottom: rem-calc(20);
 	}
 }

@@ -7,6 +7,28 @@
 		font-size: rem-calc(100);
 		margin-top: rem-calc(30);
 		letter-spacing: rem-calc(-4);
+		z-index: 10;
+	}
+
+	&.info-header {
+		h1 {
+			font-size: rem-calc(72);
+		}
+		.no-bg {
+			left: rem-calc(0);
+			z-index: 0;
+		}
+	}
+
+	&.clients-header {
+		.circle-photo {
+			left: rem-calc(-80);
+			z-index: 1;
+		}
+		.no-bg {
+			left: rem-calc(210);
+			z-index: 0;
+		}
 	}
 }
 
@@ -14,6 +36,7 @@
 	height: rem-calc(250);
 	background: white;
 	border-radius: 50%;
+	z-index: 10;
 
 	div {
 		margin-top:  rem-calc(50);
@@ -24,15 +47,16 @@
 	height: rem-calc(750);
 	top: rem-calc(-370);
 	left: rem-calc(210);
+	background-color: $green;
+	z-index: 1;
 	@extend %circle;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
+	@extend %bg-cover;
 }
 
 .inset-menu {
+	z-index: 10;
 	ul {
-		margin-top: rem-calc(5);
+		margin-top: rem-calc(6);
 		margin-left: 0;
 	}
 	li {
@@ -45,5 +69,58 @@
 		&:hover {
 			color: $green;
 		}
+	}
+}
+
+.circle-red {
+	height: rem-calc(1000);
+	border: 1px solid #f2763b;
+	@extend %circle;
+	left: -30%;
+	top: rem-calc(-440);
+	z-index: 1;
+
+	&.clients {
+		left: rem-calc(-40);
+		top: rem-calc(-550);
+	}
+
+	&.info {
+		left: rem-calc(-40);
+		top: rem-calc(-550);
+	}
+}
+
+.circle-dashed {
+	height: rem-calc(333);
+	border: 1px dashed $green;
+	@extend %circle;
+	right: rem-calc(-45);
+	top: rem-calc(200);
+	z-index: 12;
+	-webkit-animation: fadeIn 1s linear 1,rotate 1s linear infinite;
+	-o-animation: fadeIn 1s linear 1,rotate 1s linear infinite;
+	animation: fadeIn 1s linear 1,rotate 1s linear infinite;
+}
+
+.circle-green-big {
+	height: rem-calc(1000);
+	@extend %circle;
+	border: 1px dashed $green;
+	top: rem-calc(-10);
+	left: rem-calc(200);
+	-webkit-animation: rotate 3s linear infinite;
+	-o-animation: rotate 3s linear infinite;
+	animation: rotate 3s linear infinite;
+
+	&.info {
+		left: rem-calc(-130);
+		top: rem-calc(-700);
+		width: rem-calc(1200);
+		height: rem-calc(1200);
+		-webkit-animation-duration: 5s;
+		-moz-animation-duration: 5s;
+		-o-animation-duration: 5s;
+		animation-duration: 5s;
 	}
 }

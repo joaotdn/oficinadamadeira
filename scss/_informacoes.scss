@@ -1,0 +1,63 @@
+.menu-info {
+	margin-bottom: rem-calc(50);
+}
+
+.black-band {
+	height: rem-calc(40);
+	background: #636363;
+	@include skewX(-25deg);
+	top: 0;
+	left: 0;
+}
+
+.list-options {
+	z-index: 1;
+	top: rem-calc(5);
+	left: rem-calc(70);
+	font-size: rem-calc(20);
+	width: auto;
+
+	a {
+		@extend %transition-color;
+		&:hover {
+			color: $green;
+		}
+	}
+}
+
+.option-header {
+	h1 {
+		font-size: rem-calc(72);
+		border-bottom: rem-calc(10) solid #222;
+		display: inline;
+	}
+}
+//Madeiras
+.list-trees {
+	margin-top: rem-calc(40);
+}
+
+.tree-thumb {
+	height: rem-calc(310);
+	@extend %circle;
+	@extend %bg-cover;
+	margin-bottom: rem-calc(20);
+}
+
+//Dicas de armazenamento
+.red {
+	color: #e35f5f;
+}
+
+.storage-tips {
+	background: white url(images/bg-tips.jpg) repeat-x top;
+	padding-top: rem-calc(100);
+	padding-bottom: rem-calc(100);
+	width: 100%;
+	min-height: rem-calc(800);
+}
+
+.tips-columns {
+	margin-top: rem-calc(60);
+}
+

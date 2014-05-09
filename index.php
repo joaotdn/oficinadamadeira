@@ -113,7 +113,7 @@
 
 
       <div class="small-4 abs go-about by-clients wow bounceInDown" data-wow-duration="2s" data-wow-delay="1.8s">
-        <a href="#" class="display-block small-12 left white" title="O que nossos clientes dizem">
+        <a href="page-clientes.php" class="display-block small-12 left white" title="O que nossos clientes dizem">
           <h4 class="text-upp century-gothic-bold white">O que<br> nossos<br> clientes<br> dizem</h4>
         </a>
       </div>
@@ -164,7 +164,7 @@
                 <li><a href="#" class="">Produtos</a></li>
               </ul>
             </li>
-            <li><a href="#" class="" title="Clientes">Clientes</a></li>
+            <li><a href="page-clientes.php" class="" title="Clientes">Clientes</a></li>
             <li><a href="#" class="" title="Contato">Contato</a></li>
           </ul>
         </nav>

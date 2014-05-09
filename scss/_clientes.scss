@@ -1,0 +1,20 @@
+.list-clients {
+	margin-top: rem-calc(200);
+	header {
+		margin-bottom: rem-calc(30);
+	}
+
+	li {
+		&:nth-child(2n+1) {
+			margin-top: rem-calc(100);
+		}
+	}
+}
+
+.client-thumb {
+	height: rem-calc(228);
+	@extend %circle;
+	@extend %bg-cover;
+	margin-bottom: rem-calc(20);
+}
+

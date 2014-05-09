@@ -67,9 +67,7 @@
 		@extend %circle;
 		height: rem-calc(333);
 		background: url(images/bg-menu-about.jpg);
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
+		@extend %bg-cover;
 	}
 
 	p {
@@ -109,34 +107,10 @@
 	margin-top: rem-calc(100);
 }
 
-.circle-red {
-	height: rem-calc(1000);
-	border: 1px solid #f2763b;
-	@extend %circle;
-	left: -30%;
-	top: rem-calc(-440);
-	z-index: 1;
-}
-
-.circle-dashed {
-	height: rem-calc(333);
-	border: 1px dashed $green;
-	@extend %circle;
-	right: rem-calc(-45);
-	top: rem-calc(200);
-	z-index: 12;
-	-webkit-animation: fadeIn 1s linear 1,rotate 1s linear infinite;
-	-o-animation: fadeIn 1s linear 1,rotate 1s linear infinite;
-	animation: fadeIn 1s linear 1,rotate 1s linear infinite;
-}
-
 .wood-bg {
 	height: rem-calc(250);
 	background-image: url(images/bg-wood.jpg);
-	background-position: center center;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-repeat: no-repeat;
+	@extend %bg-cover;
 	border-radius: 50%;
 	top: rem-calc(390);
 	left: rem-calc(120);
