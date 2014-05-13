@@ -33,9 +33,18 @@ a {
 
 #wrapper {
 	min-height: rem-calc(750);
-	position: relative;
 	z-index: 9999;
 	margin-bottom: rem-calc(40);
+
+	&.single {
+		z-index: 99;
+		margin-top: rem-calc(200);
+	}
+	&.category {
+		z-index: 999999;
+		position: relative;
+		margin-bottom: 0;
+	}
 }
 
 /**
@@ -132,7 +141,7 @@ a {
 	height: 100%;
 }
 .full-width {
-	height: 100%;
+	width: 100% !important; 
 }
 
 //colors

@@ -651,10 +651,10 @@ $subheader-line-height: 1;
 
 // Magellan
 
-// $include-html-magellan-classes: $include-html-classes;
+ $include-html-magellan-classes: none;
 
-// $magellan-bg: #fff;
-// $magellan-padding: 10px;
+ $magellan-bg: transparent;
+ $magellan-padding: 0px;
 
 // Off-canvas
 
@@ -1104,18 +1104,18 @@ $subheader-line-height: 1;
 
 // $include-html-tabs-classes: $include-html-classes;
 
-// $tabs-navigation-padding: rem-calc(16);
-// $tabs-navigation-bg-color: #efefef  ;
-// $tabs-navigation-active-bg-color: #fff;
-// $tabs-navigation-hover-bg-color: scale-color($tabs-navigation-bg-color, $lightness: -6%);
-// $tabs-navigation-font-color: #222;
-// $tabs-navigation-font-size: rem-calc(16);
+ $tabs-navigation-padding: 0;
+ $tabs-navigation-bg-color: transparent  ;
+ $tabs-navigation-active-bg-color: transparent;
+ $tabs-navigation-hover-bg-color: transparent;
+ $tabs-navigation-font-color: #222;
+ $tabs-navigation-font-size: rem-calc(22);
 // $tabs-navigation-font-family: $body-font-family;
 
 // $tabs-content-margin-bottom: rem-calc(24);
 // $tabs-content-padding: $column-gutter/2;
 
-// $tabs-vertical-navigation-margin-bottom: 1.25rem;
+ $tabs-vertical-navigation-margin-bottom: rem-calc(20);
 
 //
 // THUMBNAILS

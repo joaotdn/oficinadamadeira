@@ -1,12 +1,12 @@
 .icon-aleft {
   background-image: url(images/spritesheet.png);
-  background-position: -913px -219px;
+  background-position: -963px -266px;
   width: 14px;
   height: 24px;
 }
 .icon-aright {
   background-image: url(images/spritesheet.png);
-  background-position: -892px -219px;
+  background-position: -942px -266px;
   width: 21px;
   height: 34px;
 }
@@ -16,11 +16,29 @@
   width: 682px;
   height: 508px;
 }
+.icon-bgmenu-category {
+  background-image: url(images/spritesheet.png);
+  background-position: 0px -564px;
+  width: 596px;
+  height: 28px;
+}
+.icon-bgmenu-single {
+  background-image: url(images/spritesheet.png);
+  background-position: 0px -536px;
+  width: 596px;
+  height: 28px;
+}
 .icon-bgmenu {
   background-image: url(images/spritesheet.png);
   background-position: 0px -508px;
   width: 596px;
   height: 28px;
+}
+.icon-bullet {
+  background-image: url(images/spritesheet.png);
+  background-position: -977px -266px;
+  width: 5px;
+  height: 10px;
 }
 .icon-loading {
   background-image: url(images/spritesheet.png);
@@ -40,9 +58,21 @@
   width: 133px;
   height: 96px;
 }
-.icon-play {
+.icon-nroom {
   background-image: url(images/spritesheet.png);
   background-position: -851px -219px;
+  width: 91px;
+  height: 91px;
+}
+.icon-play {
+  background-image: url(images/spritesheet.png);
+  background-position: -942px -219px;
   width: 41px;
   height: 47px;
+}
+.icon-proom {
+  background-image: url(images/spritesheet.png);
+  background-position: -815px -342px;
+  width: 62px;
+  height: 62px;
 }

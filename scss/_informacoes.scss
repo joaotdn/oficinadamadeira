@@ -1,8 +1,29 @@
 .menu-info {
 	margin-bottom: rem-calc(50);
+	width: 1000px;
+	@extend %transition;
+
+	dd {
+		margin-left: rem-calc(20);
+		float: left;
+	}
+
+	&.fixed-menu {
+		position: fixed;
+		z-index: 99999;
+		width: rem-calc(1000);
+		top:0;
+	}
+
+	li.active {
+		a {
+			color: $green;
+		}
+	}
 }
 
 .black-band {
+	width: rem-calc(1000);
 	height: rem-calc(40);
 	background: #636363;
 	@include skewX(-25deg);
@@ -30,6 +51,10 @@
 		font-size: rem-calc(72);
 		border-bottom: rem-calc(10) solid #222;
 		display: inline;
+
+		&.white {
+			border-color: white;
+		}
 	}
 }
 //Madeiras
@@ -59,5 +84,102 @@
 
 .tips-columns {
 	margin-top: rem-calc(60);
+	article {
+		margin-bottom: rem-calc(20);
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.tip-number {
+	color: #222;
+	border: 2px solid #222;
+	margin-left: rem-calc(10);
+	width: rem-calc(37);
+	text-align: center;
+	@extend %circle;
+	padding: rem-calc(5);
+
+	&.left {
+		margin-left: 0;
+		margin-right: rem-calc(10);
+	}
+}
+
+.tip-name {
+	line-height: 1.8;
+}
+
+//Catalogo de produtos
+#products {
+	background: url(images/bg-products.jpg);
+	padding-top: rem-calc(100);
+	width: 100%;
+
+	dd {
+		margin-top: rem-calc(10);
+		&:first-child {
+			margin-top: 0;
+		}
+		a {
+			&:hover {
+				color: white;
+			}
+		}
+
+		&.active {
+			a {
+				color: white;
+			}
+		}
+	}
+
+	nav {
+		margin-top: rem-calc(60);
+	}
+}
+
+.bottom-wave {
+	background: url(images/bg-bottom-wave.png) repeat-x top;
+	height: rem-calc(27);
+	top: 0; left: 0;
+}
+
+.product-description {
+	min-height: rem-calc(600);
+	padding-top: rem-calc(30);
+	background: $body-bg;
+	padding-bottom: rem-calc(30);
+
+	header {
+		margin-bottom: rem-calc(20);
+	}
+
+	.content {
+		@extend %transition;
+	}
+}
+
+.product-thumb {
+	@extend %bg-cover;
+	@extend %circle;
+	height: rem-calc(344);
+}
+
+//Downloads
+#downloads {
+	padding-top: rem-calc(60);
+	header {
+		margin-bottom: rem-calc(60);
+	}
+	h4 {
+		margin-bottom: rem-calc(30);
+	}
+	a {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 

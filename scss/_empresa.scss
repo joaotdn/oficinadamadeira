@@ -3,6 +3,8 @@
 	background: $green;
 	border: 20px solid #fff;
 	margin-bottom: rem-calc(30);
+	position: relative;
+	z-index: 999;
 }
 
 .play-video {

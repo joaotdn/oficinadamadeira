@@ -30,6 +30,13 @@
 			z-index: 0;
 		}
 	}
+
+	&.single-header {
+		h1 {
+			margin-top: 0;
+			left: rem-calc(10) !important;
+		}
+	}
 }
 
 .inset-logo {
@@ -51,6 +58,27 @@
 	z-index: 1;
 	@extend %circle;
 	@extend %bg-cover;
+
+	&.gold {
+		background-color: #afa491;
+		z-index: 9;
+		left: rem-calc(-50);
+		top: rem-calc(-200);
+	}
+
+	&.single {
+		left: rem-calc(600);
+		top: rem-calc(10);
+		height: rem-calc(500);
+		background-image: url(images/wood-bg.jpg);
+		@extend %bg-cover;
+		z-index: 2;
+	}
+
+	&.category {
+		background-image: url(images/wood-bg.jpg);
+		@extend %bg-cover;
+	}
 }
 
 .inset-menu {
@@ -70,6 +98,12 @@
 			color: $green;
 		}
 	}
+
+	&.single-inset {
+		position: absolute;
+		top: rem-calc(220);
+		left: rem-calc(320);
+	}
 }
 
 .circle-red {
@@ -88,6 +122,12 @@
 	&.info {
 		left: rem-calc(-40);
 		top: rem-calc(-550);
+	}
+
+	&.single {
+		top: rem-calc(-160);
+		left: rem-calc(200);
+		z-index: 0;
 	}
 }
 
@@ -122,5 +162,10 @@
 		-moz-animation-duration: 5s;
 		-o-animation-duration: 5s;
 		animation-duration: 5s;
+	}
+
+	&.single {
+		left: rem-calc(-200);
+		top: rem-calc(-400);
 	}
 }

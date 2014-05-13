@@ -46,24 +46,25 @@
         </div>
       </header>
 
-      <div id="wrapper" class="row left page-clients">
+      <div id="wrapper" class="row left page-clients rel">
+
         <nav class="small-12 columns menu-info wow slideInLeft" data-wow-duration="1s" data-wow-delay="1s">
           <div class="black-band small-12 abs"></div>
 
           <ul class="inline-list rel list-options left">
-            <li><a href="#woods" class="white text-upp century-gothic-bold">Madeiras</a></li>
-            <li><a href="#tips" class="white text-upp century-gothic-bold">Dicas de armazenamento</a></li>
-            <li><a href="#products" class="white text-upp century-gothic-bold">Catalogo de produtos</a></li>
-            <li><a href="#downloads" class="white text-upp century-gothic-bold">Downloads</a></li>
+            <li><a data-scroll href="#woods" class="white text-upp century-gothic-bold">Madeiras</a></li>
+            <li><a data-scroll href="#tips" class="white text-upp century-gothic-bold">Dicas de armazenamento</a></li>
+            <li><a data-scroll href="#products" class="white text-upp century-gothic-bold">Catalogo de produtos</a></li>
+            <li><a data-scroll href="#downloads" class="white text-upp century-gothic-bold">Downloads</a></li>
           </ul>
         </nav>
 
         <section id="woods" class="small-12 columns">
-          <header class="option-header small-12 text-center">
+          <header class="option-header small-12 text-center woods">
             <h1 class="century-ghotic-bold text-upp">Madeiras</h1>
           </header>
 
-          <nav class="list-trees small-12 left">
+          <nav class="list-trees small-12 left wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
             <ul class="small-block-grid-3">
               <li>
                 <figure class="small-12 left">
@@ -107,24 +108,268 @@
         </header>
 
         <aside class="small-6 columns left tips-columns">
-          <article class="small-12 left">
+          <article class="small-12 left wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
             <header>
               <h1 class="red text-right">Como receber e Armazenar o Material</h1>
             </header>
             <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, natus, dolorem accusamus esse porro eaque illum aspernatur minus qui laborum. Quam, eos ipsum nemo quod magni tenetur corrupti voluptate illo.</p>
           </article>
+
+          <article class="small-12 left wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <header>
+              <h4 class="red text-right small-12 left"><span class="tip-number display-block right">1</span><span class="tip-name right">Cuidados com o manuseio</span></h4>
+              <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, incidunt, minus, explicabo, obcaecati porro laboriosam quam non dolore odio ipsa voluptatibus nostrum nisi quasi nesciunt atque aspernatur quas ut perferendis.</p>
+            </header>
+          </article>
+
+          <article class="small-12 left wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <header>
+              <h4 class="red text-right small-12 left"><span class="tip-number display-block right">2</span><span class="tip-name right">Armazenando as caixas</span></h4>
+              <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, incidunt, minus, explicabo, obcaecati porro laboriosam quam non dolore odio ipsa voluptatibus nostrum nisi quasi nesciunt atque aspernatur quas ut perferendis.</p>
+            </header>
+          </article>
+
+          <article class="small-12 left wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <header>
+              <h4 class="red text-right small-12 left"><span class="tip-number display-block right">3</span><span class="tip-name right">Abertura e preparo das peças</span></h4>
+              <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, incidunt, minus, explicabo, obcaecati porro laboriosam quam non dolore odio ipsa voluptatibus nostrum nisi quasi nesciunt atque aspernatur quas ut perferendis.</p>
+            </header>
+          </article>
         </aside>
 
         <aside class="small-6 columns tips-columns">
-          <article class="small-12 left">
+          <article class="small-12 left wow slideInRight" data-wow-duration="1s" data-wow-delay="0.5s">
             <header>
               <h1 class="green">Dicas de<br>manutenção</h1>
             </header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, natus, dolorem accusamus esse porro eaque illum aspernatur minus qui laborum. Quam, eos ipsum nemo quod magni tenetur corrupti voluptate illo.</p>
           </article>
+          
+          <article class="small-12 left wow slideInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <header>
+              <h4 class="green small-12 left">
+                <span class="tip-number display-block left">1</span>
+                <span class="tip-name left">Check up a cada 2 anos</span>
+              </h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, incidunt, minus, explicabo, obcaecati porro laboriosam quam non dolore odio ipsa voluptatibus nostrum nisi quasi nesciunt atque aspernatur quas ut perferendis.</p>
+            </header>
+          </article>
+
+          <article class="small-12 left wow slideInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <header>
+              <h4 class="green small-12 left">
+                <span class="tip-number display-block left">2</span>
+                <span class="tip-name left">Troca de madeiras quebradas</span>
+              </h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, incidunt, minus, explicabo, obcaecati porro laboriosam quam non dolore odio ipsa voluptatibus nostrum nisi quasi nesciunt atque aspernatur quas ut perferendis.</p>
+            </header>
+          </article>
+
+          <article class="small-12 left wow slideInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <header>
+              <h4 class="green small-12 left">
+                <span class="tip-number display-block left">3</span>
+                <span class="tip-name left">Manutenção das ferragens</span>
+              </h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, incidunt, minus, explicabo, obcaecati porro laboriosam quam non dolore odio ipsa voluptatibus nostrum nisi quasi nesciunt atque aspernatur quas ut perferendis.</p>
+            </header>
+          </article>
+
         </aside>
       </div><!-- //row -->
     </section><!-- //dicas de armazenamento -->
+
+    <section id="products" class="full-width left rel">
+      <div class="bottom-wave abs full-width"></div>
+
+      <div class="row">
+        <header class="option-header small-12 columns text-center">
+            <h1 class="century-ghotic-bold text-upp white">Cat&Aacute;logo de produtos</h1>
+        </header>
+
+        <nav class="small-4 columns wow slideInLeft" data-wow-duration="1s">
+          <dl class="tabs vertical full-width" data-tab>
+            <dd class="active"><a href="#panel2a">Ficha Grossa Móvel (V)</a></dd>
+            <dd><a href="#panel3a">Tabique Móvel</a></dd>
+            <dd><a href="#panel4a">Porta Pivotante (HL e RCL)</a></dd>
+            <dd><a href="#panel5a">Porta de Giro (V e RCL)</a></dd>
+            <dd><a href="#panel6a">Porta de Correr duas Folhas (V e HL)</a></dd>
+            <dd><a href="#panel7a">Porta de correr com trilhe externo</a></dd>
+            <dd><a href="#panel8a">Porta de correr open space</a></dd>
+            <dd><a href="#panel9a">Porta de correr 3 folhas (V e HL)</a></dd>
+            <dd><a href="#panel10a">Janela Maxilar</a></dd>
+            <dd><a href="#panel11a">Janela Pivotante</a></dd>
+            <dd><a href="#panel12a">Porta de correr com trilho embutido no forro</a></dd>
+          </dl>
+        </nav>
+
+        <nav class="small-7 columns product-description wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+          <div class="tabs-content vertical small-10 left small-push-1">
+
+            <div class="content active" id="panel2a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Ficha Grossa Móvel (V)</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-2.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel3a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Tabique Móvel</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel4a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta Pivotante (HL e RCL)</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel5a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta de Giro (V e RCL)</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel6a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta de Correr duas Folhas (V e HL)</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel7a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta de correr com trilhe externo</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel8a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta de correr open space</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel9a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta de correr 3 folhas (V e HL)</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel10a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Janela Maxilar</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel11a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Janela Pivotante</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+            <div class="content" id="panel12a">
+              <header class="small-12 left">
+                <h2 class="green century-gothic-bold">Porta de correr com trilho embutido no forro</h2>
+              </header>
+
+              <p class="green">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut maxime accusamus impedit obcaecati magnam. Omnis eius laboriosam magnam cupiditate quisquam? Assumenda sed aliquam ex ea consequuntur facere fugiat totam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, pariatur, dolorem, cum officiis iure doloremque maxime consectetur provident autem ex tempore fuga corporis dicta at assumenda eveniet architecto laborum totam.</p>
+
+              <figure class="product-thumb small-10 left small-push-1" style="background: url(images/bg-top-3.jpg);"></figure>
+            </div>
+
+          </div>
+        </nav>
+      </div><!-- //row -->
+    </section><!-- //catalogo de produtos -->
+
+    <section id="downloads" class="full-width left">
+      <div class="row">
+        <header class="option-header small-12 columns text-center">
+            <h1 class="century-ghotic-bold text-upp">Downloads</h1>
+        </header>
+
+        <aside class="small-6 columns text-right wow slideInLeft" data-wow-duration="1s">
+          <nav class="small-12 left">
+            <h2 class="century-gothic-bold">Manuais de instrução</h2>
+            <h4 class="text-upp century-gothic">Em PDF</h4>
+
+            <ul class="no-bullet">
+                <li><h6><a href="#" class="green century-gothic-bold">Ficha Grossa Móvel (V)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Tabique Móvel</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta Pivotante (HL e RCL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de Giro (V e RCL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de Correr duas Folhas (V e HL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr com trilhe externo</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr open space</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr 3 folhas (V e HL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Janela Maxilar</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Janela Pivotante</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr com trilho embutido no forro</a></h6></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <aside class="small-6 columns wow slideInRight" data-wow-duration="1s">
+          <nav class="small-12 left">
+            <h2 class="century-gothic-bold">Projetos personalizados</h2>
+            <h4 class="text-upp century-gothic">Em PDF</h4>
+
+            <ul class="no-bullet">
+                <li><h6><a href="#" class="green century-gothic-bold">Ficha Grossa Móvel (V)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Tabique Móvel</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta Pivotante (HL e RCL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de Giro (V e RCL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de Correr duas Folhas (V e HL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr com trilhe externo</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr open space</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr 3 folhas (V e HL)</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Janela Maxilar</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Janela Pivotante</a></h6></li>
+                <li><h6><a href="#" class="green century-gothic-bold">Porta de correr com trilho embutido no forro</a></h6></li>
+            </ul>
+          </nav>
+        </aside>
+      </div><!-- //row -->
+    </section><!-- //downloads -->
 
     <div class="row">
       <footer id="footer" class="small-12 columns wow fadeInUp" data-wow-duration="2s">
