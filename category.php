@@ -42,7 +42,7 @@
         <nav class="small-12 columns category-list">
           <ul class="small-block-grid-3">
             <li>
-              <figure class="small-12 left">
+              <figure class="small-12 left wow flipInX" data-wow-duration="2s">
                 <header class="small-12 left text-center">
                   <h3 class="text-upp century-gothic-bold"><a href="#" title="">Residências</a></h3>
                 </header>
@@ -51,7 +51,7 @@
             </li>
 
             <li>
-              <figure class="small-12 left">
+              <figure class="small-12 left wow flipInX" data-wow-duration="2s">
                 <header class="small-12 left text-center">
                   <h3 class="text-upp century-gothic-bold"><a href="#" title="">Kit Porta Pronta</a></h3>
                 </header>
@@ -60,7 +60,7 @@
             </li>
 
             <li>
-              <figure class="small-12 left">
+              <figure class="small-12 left wow flipInX" data-wow-duration="2s">
                 <header class="small-12 left text-center">
                   <h3 class="text-upp century-gothic-bold"><a href="#" title="">Áreas Externas</a></h3>
                 </header>
@@ -69,7 +69,7 @@
             </li>
 
             <li>
-              <figure class="small-12 left">
+              <figure class="small-12 left wow flipInX" data-wow-duration="2s">
                 <header class="small-12 left text-center">
                   <h3 class="text-upp century-gothic-bold"><a href="#" title="">Portas de Entrada</a></h3>
                 </header>
@@ -78,7 +78,7 @@
             </li>
 
             <li>
-              <figure class="small-12 left">
+              <figure class="small-12 left wow flipInX" data-wow-duration="2s">
                 <header class="small-12 left text-center">
                   <h3 class="text-upp century-gothic-bold"><a href="#" title="">Produto Popular</a></h3>
                 </header>
@@ -87,7 +87,7 @@
             </li>
 
             <li>
-              <figure class="small-12 left">
+              <figure class="small-12 left wow flipInX" data-wow-duration="2s">
                 <header class="small-12 left text-center">
                   <h3 class="text-upp century-gothic-bold"><a href="#" title="">Ferragens</a></h3>
                 </header>

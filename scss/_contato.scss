@@ -1,0 +1,38 @@
+.contact-sidebar {
+	margin-top: rem-calc(300);
+
+	h3 {
+		margin-top: rem-calc(40);
+		color: #636363;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	h6 {
+		color: #636363;
+	}
+
+	p {
+		margin-bottom: rem-calc(5);
+	}
+
+	form {
+		margin-top: rem-calc(20);
+	}
+
+	input,textarea {
+		border: none;
+	}
+
+	input[type="submit"] {
+		padding: rem-calc(10) rem-calc(15);
+		background: $green;
+		@extend %transition;
+		cursor: pointer;
+
+		&:hover {
+			background: shade($green, 20%);
+		}
+	}
+}

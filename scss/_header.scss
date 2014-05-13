@@ -66,6 +66,13 @@
 		top: rem-calc(-200);
 	}
 
+	&.contact-big {
+		@extend %bg-cover;
+		left: rem-calc(205);
+		top: rem-calc(-200);
+		z-index: 9;
+	}
+
 	&.single {
 		left: rem-calc(600);
 		top: rem-calc(10);
@@ -73,6 +80,13 @@
 		background-image: url(images/wood-bg.jpg);
 		@extend %bg-cover;
 		z-index: 2;
+	}
+
+	&.contact {
+		background: #333;
+		left: rem-calc(500);
+		top: rem-calc(10);
+		height: rem-calc(500);
 	}
 
 	&.category {
@@ -129,6 +143,12 @@
 		left: rem-calc(200);
 		z-index: 0;
 	}
+
+	&.contact {
+		top: rem-calc(-600);
+		left: rem-calc(180);
+		z-index: 0;
+	}
 }
 
 .circle-dashed {
@@ -168,4 +188,13 @@
 		left: rem-calc(-200);
 		top: rem-calc(-400);
 	}
+
+	&.contact {
+		top: rem-calc(-500);
+		left: 0px;
+	}
+}
+
+.contact-header {
+	z-index: 0;
 }
