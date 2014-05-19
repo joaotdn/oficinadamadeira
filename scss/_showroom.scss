@@ -19,7 +19,7 @@
 .next-room {
 	bottom: rem-calc(-40);
 	right: rem-calc(30);
-	z-index: 0;
+	z-index: 99;
 	@extend %transition;
 	&:hover {
 		@include scale(1.1);
@@ -29,7 +29,7 @@
 .prev-room {
 	right: rem-calc(110);
 	bottom: rem-calc(-30);
-	z-index: 1;
+	z-index: 99;
 	@extend %transition;
 	&:hover {
 		@include scale(1.1);
@@ -79,5 +79,16 @@
 	figure {
 		height: rem-calc(327);
 		@extend %ov-hidden;
+	}
+}
+
+.list-rooms {
+	height: rem-calc(600);
+}
+
+.how-thumb {
+	img {
+		width: 100%;
+		height: auto;
 	}
 }

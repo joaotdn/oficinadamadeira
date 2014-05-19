@@ -30,6 +30,8 @@
 		background: $green;
 		@extend %transition;
 		cursor: pointer;
+		color: white;
+		text-transform: uppercase;
 
 		&:hover {
 			background: shade($green, 20%);

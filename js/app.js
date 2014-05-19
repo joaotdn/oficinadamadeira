@@ -454,7 +454,7 @@ $.fn.cycle.defaults = {
     speed:         1000,
     slideExpr:     null,
     sync:          true,
-    timeout:       4000
+    timeout:       8000
 };
 
 })(jQuery);
@@ -463,6 +463,8 @@ $('.sliders').cycle({
     next: '.arrow-right',
     prev: '.arrow-left'
 });
+
+$('.list-rooms').cycle();
 
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
@@ -501,7 +503,31 @@ $(document).ready(function() {
 
     activeClass('li','.menu-info');
 
+    function countElements(el,cont) {
+        $.each($(el,cont), function(i) {
+            $(this).text(i + 1);
+        });
+    };
+
+    countElements('.storage-number','.tips-columns');
+    countElements('.caution-number','.tips-columns');
+
+    $.each($('a','.product-titles'), function(i) {
+        $(this).attr('href','#panel'+i);
+    });
+
+    $('dd:first','.product-titles').attr('class','active');
+
+    $.each($('div','.tabs-content'), function(i) {
+        $(this).attr('id','panel'+i);
+    });
+
+    $('div:first','.tabs-content').addClass('active');
+
+
 }, new WOW().init());
+
+
 
 
 
