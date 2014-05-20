@@ -32,6 +32,7 @@
           <header class="abs">
             <h1 class="text-upp century-gothic-bold white">Descubra<br> mais dos<br> nossos<br> projetos</h1>
           </header>
+          <div id="slider-container">
           <ul class="small-12 left no-bullet sliders">
             <?php       
                 query_posts('showposts=5&category_name=show-room-digital'); 
@@ -52,6 +53,7 @@
             </li>
             <?php endwhile; else: endif; wp_reset_query(); ?>
           </ul>
+          </div><!-- //slide container -->
 
           <a href="#" class="display-block abs arrow-right" title="Próximo">
             <div class="icon-aright centered"></div>

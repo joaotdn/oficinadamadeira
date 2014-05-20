@@ -459,11 +459,6 @@ $.fn.cycle.defaults = {
 
 })(jQuery);
 
-$('.sliders').cycle({
-    next: '.arrow-right',
-    prev: '.arrow-left'
-});
-
 $('.list-rooms').cycle();
 
 // Foundation JavaScript
@@ -480,6 +475,13 @@ $(document).ready(function() {
       //autoClose: false,
       splashVPos: '202px',
       closeBtnText: ''
+    });
+
+    $("#slider-container").jCarouselLite({
+        btnNext: ".icon-aright",
+        btnPrev: ".icon-aleft",
+        visible: 1,
+        auto: 8000
     });
 
     smoothScroll.init();

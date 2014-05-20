@@ -1,4 +1,341 @@
-/*! jCarousel - v0.3.1 - 2014-04-26
-* http://sorgalla.com/jcarousel
-* Copyright (c) 2014 Jan Sorgalla; Licensed MIT */
-(function(t){"use strict";var i=t.jCarousel={};i.version="0.3.1";var s=/^([+\-]=)?(.+)$/;i.parseTarget=function(t){var i=!1,e="object"!=typeof t?s.exec(t):null;return e?(t=parseInt(e[2],10)||0,e[1]&&(i=!0,"-="===e[1]&&(t*=-1))):"object"!=typeof t&&(t=parseInt(t,10)||0),{target:t,relative:i}},i.detectCarousel=function(t){for(var i;t.length>0;){if(i=t.filter("[data-jcarousel]"),i.length>0)return i;if(i=t.find("[data-jcarousel]"),i.length>0)return i;t=t.parent()}return null},i.base=function(s){return{version:i.version,_options:{},_element:null,_carousel:null,_init:t.noop,_create:t.noop,_destroy:t.noop,_reload:t.noop,create:function(){return this._element.attr("data-"+s.toLowerCase(),!0).data(s,this),!1===this._trigger("create")?this:(this._create(),this._trigger("createend"),this)},destroy:function(){return!1===this._trigger("destroy")?this:(this._destroy(),this._trigger("destroyend"),this._element.removeData(s).removeAttr("data-"+s.toLowerCase()),this)},reload:function(t){return!1===this._trigger("reload")?this:(t&&this.options(t),this._reload(),this._trigger("reloadend"),this)},element:function(){return this._element},options:function(i,s){if(0===arguments.length)return t.extend({},this._options);if("string"==typeof i){if(s===void 0)return this._options[i]===void 0?null:this._options[i];this._options[i]=s}else this._options=t.extend({},this._options,i);return this},carousel:function(){return this._carousel||(this._carousel=i.detectCarousel(this.options("carousel")||this._element),this._carousel||t.error('Could not detect carousel for plugin "'+s+'"')),this._carousel},_trigger:function(i,e,r){var n,l=!1;return r=[this].concat(r||[]),(e||this._element).each(function(){n=t.Event((s+":"+i).toLowerCase()),t(this).trigger(n,r),n.isDefaultPrevented()&&(l=!0)}),!l}}},i.plugin=function(s,e){var r=t[s]=function(i,s){this._element=t(i),this.options(s),this._init(),this.create()};return r.fn=r.prototype=t.extend({},i.base(s),e),t.fn[s]=function(i){var e=Array.prototype.slice.call(arguments,1),n=this;return"string"==typeof i?this.each(function(){var r=t(this).data(s);if(!r)return t.error("Cannot call methods on "+s+" prior to initialization; "+'attempted to call method "'+i+'"');if(!t.isFunction(r[i])||"_"===i.charAt(0))return t.error('No such method "'+i+'" for '+s+" instance");var l=r[i].apply(r,e);return l!==r&&l!==void 0?(n=l,!1):void 0}):this.each(function(){var e=t(this).data(s);e instanceof r?e.reload(i):new r(this,i)}),n},r}})(jQuery),function(t,i){"use strict";var s=function(t){return parseFloat(t)||0};t.jCarousel.plugin("jcarousel",{animating:!1,tail:0,inTail:!1,resizeTimer:null,lt:null,vertical:!1,rtl:!1,circular:!1,underflow:!1,relative:!1,_options:{list:function(){return this.element().children().eq(0)},items:function(){return this.list().children()},animation:400,transitions:!1,wrap:null,vertical:null,rtl:null,center:!1},_list:null,_items:null,_target:null,_first:null,_last:null,_visible:null,_fullyvisible:null,_init:function(){var t=this;return this.onWindowResize=function(){t.resizeTimer&&clearTimeout(t.resizeTimer),t.resizeTimer=setTimeout(function(){t.reload()},100)},this},_create:function(){this._reload(),t(i).on("resize.jcarousel",this.onWindowResize)},_destroy:function(){t(i).off("resize.jcarousel",this.onWindowResize)},_reload:function(){this.vertical=this.options("vertical"),null==this.vertical&&(this.vertical=this.list().height()>this.list().width()),this.rtl=this.options("rtl"),null==this.rtl&&(this.rtl=function(i){if("rtl"===(""+i.attr("dir")).toLowerCase())return!0;var s=!1;return i.parents("[dir]").each(function(){return/rtl/i.test(t(this).attr("dir"))?(s=!0,!1):void 0}),s}(this._element)),this.lt=this.vertical?"top":"left",this.relative="relative"===this.list().css("position"),this._list=null,this._items=null;var i=this._target&&this.index(this._target)>=0?this._target:this.closest();this.circular="circular"===this.options("wrap"),this.underflow=!1;var s={left:0,top:0};return i.length>0&&(this._prepare(i),this.list().find("[data-jcarousel-clone]").remove(),this._items=null,this.underflow=this._fullyvisible.length>=this.items().length,this.circular=this.circular&&!this.underflow,s[this.lt]=this._position(i)+"px"),this.move(s),this},list:function(){if(null===this._list){var i=this.options("list");this._list=t.isFunction(i)?i.call(this):this._element.find(i)}return this._list},items:function(){if(null===this._items){var i=this.options("items");this._items=(t.isFunction(i)?i.call(this):this.list().find(i)).not("[data-jcarousel-clone]")}return this._items},index:function(t){return this.items().index(t)},closest:function(){var i,e=this,r=this.list().position()[this.lt],n=t(),l=!1,o=this.vertical?"bottom":this.rtl&&!this.relative?"left":"right";return this.rtl&&this.relative&&!this.vertical&&(r+=this.list().width()-this.clipping()),this.items().each(function(){if(n=t(this),l)return!1;var a=e.dimension(n);if(r+=a,r>=0){if(i=a-s(n.css("margin-"+o)),!(0>=Math.abs(r)-a+i/2))return!1;l=!0}}),n},target:function(){return this._target},first:function(){return this._first},last:function(){return this._last},visible:function(){return this._visible},fullyvisible:function(){return this._fullyvisible},hasNext:function(){if(!1===this._trigger("hasnext"))return!0;var t=this.options("wrap"),i=this.items().length-1;return i>=0&&!this.underflow&&(t&&"first"!==t||i>this.index(this._last)||this.tail&&!this.inTail)?!0:!1},hasPrev:function(){if(!1===this._trigger("hasprev"))return!0;var t=this.options("wrap");return this.items().length>0&&!this.underflow&&(t&&"last"!==t||this.index(this._first)>0||this.tail&&this.inTail)?!0:!1},clipping:function(){return this._element["inner"+(this.vertical?"Height":"Width")]()},dimension:function(t){return t["outer"+(this.vertical?"Height":"Width")](!0)},scroll:function(i,s,e){if(this.animating)return this;if(!1===this._trigger("scroll",null,[i,s]))return this;t.isFunction(s)&&(e=s,s=!0);var r=t.jCarousel.parseTarget(i);if(r.relative){var n,l,o,a,h,u,c,f,d=this.items().length-1,_=Math.abs(r.target),p=this.options("wrap");if(r.target>0){var v=this.index(this._last);if(v>=d&&this.tail)this.inTail?"both"===p||"last"===p?this._scroll(0,s,e):t.isFunction(e)&&e.call(this,!1):this._scrollTail(s,e);else if(n=this.index(this._target),this.underflow&&n===d&&("circular"===p||"both"===p||"last"===p)||!this.underflow&&v===d&&("both"===p||"last"===p))this._scroll(0,s,e);else if(o=n+_,this.circular&&o>d){for(f=d,h=this.items().get(-1);o>f++;)h=this.items().eq(0),u=this._visible.index(h)>=0,u&&h.after(h.clone(!0).attr("data-jcarousel-clone",!0)),this.list().append(h),u||(c={},c[this.lt]=this.dimension(h),this.moveBy(c)),this._items=null;this._scroll(h,s,e)}else this._scroll(Math.min(o,d),s,e)}else if(this.inTail)this._scroll(Math.max(this.index(this._first)-_+1,0),s,e);else if(l=this.index(this._first),n=this.index(this._target),a=this.underflow?n:l,o=a-_,0>=a&&(this.underflow&&"circular"===p||"both"===p||"first"===p))this._scroll(d,s,e);else if(this.circular&&0>o){for(f=o,h=this.items().get(0);0>f++;){h=this.items().eq(-1),u=this._visible.index(h)>=0,u&&h.after(h.clone(!0).attr("data-jcarousel-clone",!0)),this.list().prepend(h),this._items=null;var g=this.dimension(h);c={},c[this.lt]=-g,this.moveBy(c)}this._scroll(h,s,e)}else this._scroll(Math.max(o,0),s,e)}else this._scroll(r.target,s,e);return this._trigger("scrollend"),this},moveBy:function(t,i){var e=this.list().position(),r=1,n=0;return this.rtl&&!this.vertical&&(r=-1,this.relative&&(n=this.list().width()-this.clipping())),t.left&&(t.left=e.left+n+s(t.left)*r+"px"),t.top&&(t.top=e.top+n+s(t.top)*r+"px"),this.move(t,i)},move:function(i,s){s=s||{};var e=this.options("transitions"),r=!!e,n=!!e.transforms,l=!!e.transforms3d,o=s.duration||0,a=this.list();if(!r&&o>0)return a.animate(i,s),void 0;var h=s.complete||t.noop,u={};if(r){var c=a.css(["transitionDuration","transitionTimingFunction","transitionProperty"]),f=h;h=function(){t(this).css(c),f.call(this)},u={transitionDuration:(o>0?o/1e3:0)+"s",transitionTimingFunction:e.easing||s.easing,transitionProperty:o>0?function(){return n||l?"all":i.left?"left":"top"}():"none",transform:"none"}}l?u.transform="translate3d("+(i.left||0)+","+(i.top||0)+",0)":n?u.transform="translate("+(i.left||0)+","+(i.top||0)+")":t.extend(u,i),r&&o>0&&a.one("transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",h),a.css(u),0>=o&&a.each(function(){h.call(this)})},_scroll:function(i,s,e){if(this.animating)return t.isFunction(e)&&e.call(this,!1),this;if("object"!=typeof i?i=this.items().eq(i):i.jquery===void 0&&(i=t(i)),0===i.length)return t.isFunction(e)&&e.call(this,!1),this;this.inTail=!1,this._prepare(i);var r=this._position(i),n=this.list().position()[this.lt];if(r===n)return t.isFunction(e)&&e.call(this,!1),this;var l={};return l[this.lt]=r+"px",this._animate(l,s,e),this},_scrollTail:function(i,s){if(this.animating||!this.tail)return t.isFunction(s)&&s.call(this,!1),this;var e=this.list().position()[this.lt];this.rtl&&this.relative&&!this.vertical&&(e+=this.list().width()-this.clipping()),this.rtl&&!this.vertical?e+=this.tail:e-=this.tail,this.inTail=!0;var r={};return r[this.lt]=e+"px",this._update({target:this._target.next(),fullyvisible:this._fullyvisible.slice(1).add(this._visible.last())}),this._animate(r,i,s),this},_animate:function(i,s,e){if(e=e||t.noop,!1===this._trigger("animate"))return e.call(this,!1),this;this.animating=!0;var r=this.options("animation"),n=t.proxy(function(){this.animating=!1;var t=this.list().find("[data-jcarousel-clone]");t.length>0&&(t.remove(),this._reload()),this._trigger("animateend"),e.call(this,!0)},this),l="object"==typeof r?t.extend({},r):{duration:r},o=l.complete||t.noop;return s===!1?l.duration=0:t.fx.speeds[l.duration]!==void 0&&(l.duration=t.fx.speeds[l.duration]),l.complete=function(){n(),o.call(this)},this.move(i,l),this},_prepare:function(i){var e,r,n,l,o=this.index(i),a=o,h=this.dimension(i),u=this.clipping(),c=this.vertical?"bottom":this.rtl?"left":"right",f=this.options("center"),d={target:i,first:i,last:i,visible:i,fullyvisible:u>=h?i:t()};if(f&&(h/=2,u/=2),u>h)for(;;){if(e=this.items().eq(++a),0===e.length){if(!this.circular)break;if(e=this.items().eq(0),i.get(0)===e.get(0))break;if(r=this._visible.index(e)>=0,r&&e.after(e.clone(!0).attr("data-jcarousel-clone",!0)),this.list().append(e),!r){var _={};_[this.lt]=this.dimension(e),this.moveBy(_)}this._items=null}if(l=this.dimension(e),0===l)break;if(h+=l,d.last=e,d.visible=d.visible.add(e),n=s(e.css("margin-"+c)),u>=h-n&&(d.fullyvisible=d.fullyvisible.add(e)),h>=u)break}if(!this.circular&&!f&&u>h)for(a=o;;){if(0>--a)break;if(e=this.items().eq(a),0===e.length)break;if(l=this.dimension(e),0===l)break;if(h+=l,d.first=e,d.visible=d.visible.add(e),n=s(e.css("margin-"+c)),u>=h-n&&(d.fullyvisible=d.fullyvisible.add(e)),h>=u)break}return this._update(d),this.tail=0,f||"circular"===this.options("wrap")||"custom"===this.options("wrap")||this.index(d.last)!==this.items().length-1||(h-=s(d.last.css("margin-"+c)),h>u&&(this.tail=h-u)),this},_position:function(t){var i=this._first,s=i.position()[this.lt],e=this.options("center"),r=e?this.clipping()/2-this.dimension(i)/2:0;return this.rtl&&!this.vertical?(s-=this.relative?this.list().width()-this.dimension(i):this.clipping()-this.dimension(i),s+=r):s-=r,!e&&(this.index(t)>this.index(i)||this.inTail)&&this.tail?(s=this.rtl&&!this.vertical?s-this.tail:s+this.tail,this.inTail=!0):this.inTail=!1,-s},_update:function(i){var s,e=this,r={target:this._target||t(),first:this._first||t(),last:this._last||t(),visible:this._visible||t(),fullyvisible:this._fullyvisible||t()},n=this.index(i.first||r.first)<this.index(r.first),l=function(s){var l=[],o=[];i[s].each(function(){0>r[s].index(this)&&l.push(this)}),r[s].each(function(){0>i[s].index(this)&&o.push(this)}),n?l=l.reverse():o=o.reverse(),e._trigger(s+"in",t(l)),e._trigger(s+"out",t(o)),e["_"+s]=i[s]};for(s in i)l(s);return this}})}(jQuery,window);
+/**
+ * jCarouselLite - jQuery plugin to navigate images/any content in a carousel style widget.
+ * @requires jQuery v1.2 or above
+ *
+ * http://gmarwaha.com/jquery/jcarousellite/
+ *
+ * Copyright (c) 2007 Ganeshji Marwaha (gmarwaha.com)
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * Version: 1.0.1
+ * Note: Requires jquery 1.2 or above from version 1.0.1
+ */
+
+/**
+ * Creates a carousel-style navigation widget for images/any-content from a simple HTML markup.
+ *
+ * The HTML markup that is used to build the carousel can be as simple as...
+ *
+ *  <div class="carousel">
+ *      <ul>
+ *          <li><img src="image/1.jpg" alt="1"></li>
+ *          <li><img src="image/2.jpg" alt="2"></li>
+ *          <li><img src="image/3.jpg" alt="3"></li>
+ *      </ul>
+ *  </div>
+ *
+ * As you can see, this snippet is nothing but a simple div containing an unordered list of images.
+ * You don't need any special "class" attribute, or a special "css" file for this plugin.
+ * I am using a class attribute just for the sake of explanation here.
+ *
+ * To navigate the elements of the carousel, you need some kind of navigation buttons.
+ * For example, you will need a "previous" button to go backward, and a "next" button to go forward.
+ * This need not be part of the carousel "div" itself. It can be any element in your page.
+ * Lets assume that the following elements in your document can be used as next, and prev buttons...
+ *
+ * <button class="prev">&lt;&lt;</button>
+ * <button class="next">&gt;&gt;</button>
+ *
+ * Now, all you need to do is call the carousel component on the div element that represents it, and pass in the
+ * navigation buttons as options.
+ *
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev"
+ * });
+ *
+ * That's it, you would have now converted your raw div, into a magnificient carousel.
+ *
+ * There are quite a few other options that you can use to customize it though.
+ * Each will be explained with an example below.
+ *
+ * @param an options object - You can specify all the options shown below as an options object param.
+ *
+ * @option btnPrev, btnNext : string - no defaults
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev"
+ * });
+ * @desc Creates a basic carousel. Clicking "btnPrev" navigates backwards and "btnNext" navigates forward.
+ *
+ * @option btnGo - array - no defaults
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      btnGo: [".0", ".1", ".2"]
+ * });
+ * @desc If you don't want next and previous buttons for navigation, instead you prefer custom navigation based on
+ * the item number within the carousel, you can use this option. Just supply an array of selectors for each element
+ * in the carousel. The index of the array represents the index of the element. What i mean is, if the
+ * first element in the array is ".0", it means that when the element represented by ".0" is clicked, the carousel
+ * will slide to the first element and so on and so forth. This feature is very powerful. For example, i made a tabbed
+ * interface out of it by making my navigation elements styled like tabs in css. As the carousel is capable of holding
+ * any content, not just images, you can have a very simple tabbed navigation in minutes without using any other plugin.
+ * The best part is that, the tab will "slide" based on the provided effect. :-)
+ *
+ * @option mouseWheel : boolean - default is false
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      mouseWheel: true
+ * });
+ * @desc The carousel can also be navigated using the mouse wheel interface of a scroll mouse instead of using buttons.
+ * To get this feature working, you have to do 2 things. First, you have to include the mouse-wheel plugin from brandon.
+ * Second, you will have to set the option "mouseWheel" to true. That's it, now you will be able to navigate your carousel
+ * using the mouse wheel. Using buttons and mouseWheel or not mutually exclusive. You can still have buttons for navigation
+ * as well. They complement each other. To use both together, just supply the options required for both as shown below.
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      mouseWheel: true
+ * });
+ *
+ * @option auto : number - default is null, meaning autoscroll is disabled by default
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      auto: 800,
+ *      speed: 500
+ * });
+ * @desc You can make your carousel auto-navigate itself by specfying a millisecond value in this option.
+ * The value you specify is the amount of time between 2 slides. The default is null, and that disables auto scrolling.
+ * Specify this value and magically your carousel will start auto scrolling.
+ *
+ * @option speed : number - 200 is default
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      speed: 800
+ * });
+ * @desc Specifying a speed will slow-down or speed-up the sliding speed of your carousel. Try it out with
+ * different speeds like 800, 600, 1500 etc. Providing 0, will remove the slide effect.
+ *
+ * @option easing : string - no easing effects by default.
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      easing: "bounceout"
+ * });
+ * @desc You can specify any easing effect. Note: You need easing plugin for that. Once specified,
+ * the carousel will slide based on the provided easing effect.
+ *
+ * @option vertical : boolean - default is false
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      vertical: true
+ * });
+ * @desc Determines the direction of the carousel. true, means the carousel will display vertically. The next and
+ * prev buttons will slide the items vertically as well. The default is false, which means that the carousel will
+ * display horizontally. The next and prev items will slide the items from left-right in this case.
+ *
+ * @option circular : boolean - default is true
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      circular: false
+ * });
+ * @desc Setting it to true enables circular navigation. This means, if you click "next" after you reach the last
+ * element, you will automatically slide to the first element and vice versa. If you set circular to false, then
+ * if you click on the "next" button after you reach the last element, you will stay in the last element itself
+ * and similarly for "previous" button and first element.
+ *
+ * @option visible : number - default is 3
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      visible: 4
+ * });
+ * @desc This specifies the number of items visible at all times within the carousel. The default is 3.
+ * You are even free to experiment with real numbers. Eg: "3.5" will have 3 items fully visible and the
+ * last item half visible. This gives you the effect of showing the user that there are more images to the right.
+ *
+ * @option start : number - default is 0
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      start: 2
+ * });
+ * @desc You can specify from which item the carousel should start. Remember, the first item in the carousel
+ * has a start of 0, and so on.
+ *
+ * @option scrool : number - default is 1
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      scroll: 2
+ * });
+ * @desc The number of items that should scroll/slide when you click the next/prev navigation buttons. By
+ * default, only one item is scrolled, but you may set it to any number. Eg: setting it to "2" will scroll
+ * 2 items when you click the next or previous buttons.
+ *
+ * @option beforeStart, afterEnd : function - callbacks
+ * @example
+ * $(".carousel").jCarouselLite({
+ *      btnNext: ".next",
+ *      btnPrev: ".prev",
+ *      beforeStart: function(a) {
+ *          alert("Before animation starts:" + a);
+ *      },
+ *      afterEnd: function(a) {
+ *          alert("After animation ends:" + a);
+ *      }
+ * });
+ * @desc If you wanted to do some logic in your page before the slide starts and after the slide ends, you can
+ * register these 2 callbacks. The functions will be passed an argument that represents an array of elements that
+ * are visible at the time of callback.
+ *
+ *
+ * @cat Plugins/Image Gallery
+ * @author Ganeshji Marwaha/ganeshread@gmail.com
+ */
+
+(function($) {                                          // Compliant with jquery.noConflict()
+$.fn.jCarouselLite = function(o) {
+    o = $.extend({
+        btnPrev: null,
+        btnNext: null,
+        btnGo: null,
+        mouseWheel: false,
+        auto: null,
+
+        speed: 200,
+        easing: null,
+
+        vertical: false,
+        circular: true,
+        visible: 3,
+        start: 0,
+        scroll: 1,
+
+        beforeStart: null,
+        afterEnd: null
+    }, o || {});
+
+    return this.each(function() {                           // Returns the element collection. Chainable.
+
+        var running = false, animCss=o.vertical?"top":"left", sizeCss=o.vertical?"height":"width";
+        var div = $(this), ul = $("ul", div), tLi = $("li", ul), tl = tLi.size(), v = o.visible;
+
+        if(o.circular) {
+            ul.prepend(tLi.slice(tl-v-1+1).clone())
+              .append(tLi.slice(0,v).clone());
+            o.start += v;
+        }
+
+        var li = $("li", ul), itemLength = li.size(), curr = o.start;
+        div.css("visibility", "visible");
+
+        li.css({overflow: "hidden", float: o.vertical ? "none" : "left"});
+        ul.css({margin: "0", padding: "0", position: "relative", "list-style-type": "none", "z-index": "1"});
+        div.css({overflow: "hidden", position: "relative", "z-index": "2", left: "0px"});
+
+        var liSize = o.vertical ? height(li) : width(li);   // Full li size(incl margin)-Used for animation
+        var ulSize = liSize * itemLength;                   // size of full ul(total length, not just for the visible items)
+        var divSize = liSize * v;                           // size of entire div(total length for just the visible items)
+
+        li.css({width: li.width(), height: li.height()});
+        ul.css(sizeCss, ulSize+"px").css(animCss, -(curr*liSize));
+
+        div.css(sizeCss, divSize+"px");                     // Width of the DIV. length of visible images
+
+        if(o.btnPrev)
+            $(o.btnPrev).click(function() {
+                return go(curr-o.scroll);
+            });
+
+        if(o.btnNext)
+            $(o.btnNext).click(function() {
+                return go(curr+o.scroll);
+            });
+
+        if(o.btnGo)
+            $.each(o.btnGo, function(i, val) {
+                $(val).click(function() {
+                    return go(o.circular ? o.visible+i : i);
+                });
+            });
+
+        if(o.mouseWheel && div.mousewheel)
+            div.mousewheel(function(e, d) {
+                return d>0 ? go(curr-o.scroll) : go(curr+o.scroll);
+            });
+
+        if(o.auto)
+            setInterval(function() {
+                go(curr+o.scroll);
+            }, o.auto+o.speed);
+
+        function vis() {
+            return li.slice(curr).slice(0,v);
+        };
+
+        function go(to) {
+            if(!running) {
+
+                if(o.beforeStart)
+                    o.beforeStart.call(this, vis());
+
+                if(o.circular) {            // If circular we are in first or last, then goto the other end
+                    if(to<=o.start-v-1) {           // If first, then goto last
+                        ul.css(animCss, -((itemLength-(v*2))*liSize)+"px");
+                        // If "scroll" > 1, then the "to" might not be equal to the condition; it can be lesser depending on the number of elements.
+                        curr = to==o.start-v-1 ? itemLength-(v*2)-1 : itemLength-(v*2)-o.scroll;
+                    } else if(to>=itemLength-v+1) { // If last, then goto first
+                        ul.css(animCss, -( (v) * liSize ) + "px" );
+                        // If "scroll" > 1, then the "to" might not be equal to the condition; it can be greater depending on the number of elements.
+                        curr = to==itemLength-v+1 ? v+1 : v+o.scroll;
+                    } else curr = to;
+                } else {                    // If non-circular and to points to first or last, we just return.
+                    if(to<0 || to>itemLength-v) return;
+                    else curr = to;
+                }                           // If neither overrides it, the curr will still be "to" and we can proceed.
+
+                running = true;
+
+                ul.animate(
+                    animCss == "left" ? { left: -(curr*liSize) } : { top: -(curr*liSize) } , o.speed, o.easing,
+                    function() {
+                        if(o.afterEnd)
+                            o.afterEnd.call(this, vis());
+                        running = false;
+                    }
+                );
+                // Disable buttons when the carousel reaches the last/first, and enable when not
+                if(!o.circular) {
+                    $(o.btnPrev + "," + o.btnNext).removeClass("disabled");
+                    $( (curr-o.scroll<0 && o.btnPrev)
+                        ||
+                       (curr+o.scroll > itemLength-v && o.btnNext)
+                        ||
+                       []
+                     ).addClass("disabled");
+                }
+
+            }
+            return false;
+        };
+    });
+};
+
+function css(el, prop) {
+    return parseInt($.css(el[0], prop)) || 0;
+};
+function width(el) {
+    return  el[0].offsetWidth + css(el, 'marginLeft') + css(el, 'marginRight');
+};
+function height(el) {
+    return el[0].offsetHeight + css(el, 'marginTop') + css(el, 'marginBottom');
+};
+
+})(jQuery);

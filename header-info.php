@@ -16,13 +16,13 @@
           <div class="icon-bgmenu abs"></div>
           <ul class="inline-list small-12 left">
             <li><a href="javascript:window.history.go(-1)" class="text-upp return-page">Voltar</a></li>
+            <?php $page = get_page_by_title('Empresa'); ?>
+            <li><a href="<?php echo get_page_link($page->ID); ?>" class="text-upp">Empresa</a></li>
             <?php 
               $category_id = get_cat_ID('Show Room Digital');
               $category_link = get_category_link( $category_id );
             ?>
             <li><a href="<?php echo esc_url( $category_link ); ?>" class="text-upp">Show Room Digital</a></li>
-            <?php $page = get_page_by_title('Empresa'); ?>
-            <li><a href="<?php echo get_page_link($page->ID); ?>" class="text-upp">Empresa</a></li>
             <?php $page = get_page_by_title('Clientes'); ?>
             <li><a href="<?php echo get_page_link($page->ID); ?>" class="text-upp">Clientes</a></li>
             <?php $page = get_page_by_title('Contato'); ?>
