@@ -50,10 +50,10 @@ function get_excerpt($l) {
 }
 
 function randomImagesHeader() {
-    $arr = array('bg-top-1.jpg','bg-top-2.jpg','bg-top-3.jpg','bg-top-4.jpg','bg-top-5.jpg');
-    shuffle($arr);
-    define(CZDIR, get_template_directory_uri(). '/images/' . $arr[0]);
-    echo 'background-image: url('. CZDIR .');';
+  $page = get_page_by_title('Slider Topo');
+  $images = get_field('slider', $page->ID); 
+  shuffle($images);
+  echo 'background-image: url('. $images[0]['slide'] .');';
 }
 
 /**
